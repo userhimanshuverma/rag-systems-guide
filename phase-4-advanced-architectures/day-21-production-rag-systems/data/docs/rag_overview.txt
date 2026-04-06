@@ -1,0 +1,17 @@
+RAG stands for Retrieval Augmented Generation. It is a technique that improves LLM accuracy by retrieving relevant documents before generating answers. Instead of relying solely on training data, RAG fetches real, up-to-date information from a knowledge base and passes it as context to the LLM.
+
+The basic RAG pipeline works as follows: a user submits a query, the retriever searches the knowledge base for relevant document chunks, those chunks are passed to the LLM as context, and the LLM generates a grounded answer based on the retrieved information.
+
+RAG reduces hallucinations because the model has real documents to reference rather than generating from memory. It also supports private and internal data that was never part of the model's training set.
+
+Embeddings are central to RAG. An embedding model converts text into numerical vectors that capture semantic meaning. Similar text produces similar vectors, enabling semantic search that finds relevant documents even when exact words don't match.
+
+Vector databases store these embeddings and enable fast nearest-neighbor search at scale. When a query arrives, it is embedded and compared against stored vectors to find the most semantically similar chunks.
+
+Chunking is the process of splitting large documents into smaller pieces before embedding. Proper chunk size and overlap are critical for retrieval quality. Too large and embeddings capture too many topics. Too small and chunks lose context.
+
+Reranking is a second pass that re-scores retrieved documents for precision. After broad retrieval returns many candidates, a reranker selects the most genuinely relevant ones to pass to the LLM.
+
+Context construction assembles the reranked chunks into a clean, structured block that the LLM can reason over. It handles deduplication, ordering by relevance, and enforcing token limits.
+
+Prompting with retrieved knowledge requires explicit instructions. The LLM must be told to use only the provided context and to say it does not know when the answer is not present. This is the key guardrail against hallucination.

@@ -1,0 +1,15 @@
+Advanced RAG techniques go beyond the basic pipeline to improve retrieval quality and system reliability.
+
+Multi-query retrieval generates multiple variations of the original query and runs retrieval for each. Different phrasings capture different relevant documents. Results are merged and deduplicated before reranking. This improves recall significantly for ambiguous or complex queries.
+
+Hybrid search combines vector-based semantic search with traditional keyword search. Semantic search understands meaning but can miss exact terms. Keyword search finds exact matches but misses synonyms. Together they cover each other's blind spots and produce better recall and precision.
+
+Metadata filtering narrows the search space before similarity search runs. By filtering on attributes like source, date, category, or department, the system reduces noise and improves both speed and accuracy.
+
+Agentic RAG replaces the fixed pipeline with a decision loop. An agent retrieves documents, evaluates whether they are sufficient, and decides whether to answer, refine the query, or try a different approach. This handles complex and multi-part queries that fixed pipelines cannot.
+
+Graph RAG stores knowledge as a network of entities and relationships. Instead of retrieving isolated chunks, it traverses the graph to retrieve connected information. This is powerful for root cause analysis, knowledge management, and relationship queries.
+
+Production RAG systems require careful attention to latency, caching, monitoring, and evaluation. Caching responses for repeated queries reduces LLM calls and improves response time. Monitoring query latency, retrieval quality, and answer accuracy helps identify degradation early. Regular evaluation against a test dataset ensures the system maintains quality over time.
+
+Fine-tuning and RAG are complementary. RAG handles knowledge that changes or is private. Fine-tuning handles consistent behavior, tone, and output format. Most production systems use both.

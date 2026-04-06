@@ -1,0 +1,22 @@
+[
+  {
+    "query": "What is RAG?",
+    "expected_answer": "RAG stands for Retrieval Augmented Generation. It improves LLM accuracy by retrieving relevant documents before generating answers.",
+    "expected_source": "rag_overview.txt"
+  },
+  {
+    "query": "How does chunking affect retrieval quality?",
+    "expected_answer": "Chunking splits large documents into smaller pieces. Proper chunk size and overlap are critical. Too large captures too many topics. Too small loses context.",
+    "expected_source": "rag_overview.txt"
+  },
+  {
+    "query": "What is hybrid search?",
+    "expected_answer": "Hybrid search combines vector-based semantic search with keyword search for better recall and precision.",
+    "expected_source": "advanced_rag.txt"
+  },
+  {
+    "query": "What is agentic RAG?",
+    "expected_answer": "Agentic RAG uses a decision loop where an agent retrieves documents, evaluates sufficiency, and decides whether to answer or refine the query.",
+    "expected_source": "advanced_rag.txt"
+  }
+]
